@@ -1,0 +1,60 @@
+#cookie-panda{
+	display: block;
+	position: fixed;
+    width: 100%;
+    bottom: 0;
+    padding: 15px 30px;
+    background: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    z-index: 999;
+}
+
+#cookie-panda .cookie-btn-wrapper{
+	text-align: right;
+}
+
+#cookie-panda .cookie-btn-wrapper a{
+	-webkit-transition: 0.3s ease-out;
+	   -moz-transition: 0.3s ease-out;
+	    -ms-transition: 0.3s ease-out;
+	     -o-transition: 0.3s ease-out;
+	        transition: 0.3s ease-out;
+	border: 1.5px solid #fff;
+    padding: 7px 14px;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+#cookie-panda .cookie-btn-wrapper a:hover{
+	-webkit-transition: 0.3s ease-in;
+	   -moz-transition: 0.3s ease-in;
+	    -ms-transition: 0.3s ease-in;
+	     -o-transition: 0.3s ease-in;
+	        transition: 0.3s ease-in;
+	background: #FFF;
+	color: #000;
+}
+
+#cookie-panda .widget p{
+	margin: 0 !important;
+	font-size: 14px;
+}
+
+#cookie-panda .widget{
+	display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+@media(max-width: 767px){
+	#cookie-panda .cookie-btn-wrapper{
+		text-align: center;
+    	margin-top: 15px;
+	}
+
+	#cookie-panda{
+		text-align: center;
+	}
+}
