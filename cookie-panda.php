@@ -15,6 +15,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 if ( !class_exists( 'CookiePanda' ) ) :
 
+include 'cookie-panda-widget.php';
+
 class CookiePanda {
 
     private $name = 'Cookie Panda';
@@ -24,9 +26,8 @@ class CookiePanda {
     private $shortcode = 'cookiepanda';
 
     public function __construct() {
-
         self::load_files();
-        add_shortcode( $this->shortcode, array( $this, 'displayForm' ) );
+        self::widgetize();
     }
 
     public function load_files() {
@@ -44,33 +45,25 @@ class CookiePanda {
         return $this->version;
     }
 
-    public function displayForm() {
-        add_action( 'wp_footer', function() {
-            ob_start()
-            ?>
-                <div id="cookie-panda">
-                    <div class="row">
-                        <div class="col-12 col-md-10">
-                            <div class="widget">
-                                <p>
-                                    Ce site utilise des cookies pour améliorer votre expérience et vous fournir un contenu personnalisé. Si vous continuez à naviguer sur notre site Web, vous acceptez notre utilisation des cookies.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="col-12 col-md-2 cookie-btn-wrapper"> 
-                            <a href="#" id="cookie-accept" class="btn">J'accepte</a>
-                        </div>
-                    </div>
-                </div>
-            <?php
-            $output = ob_get_clean();
-            echo $output;
-        });
-        
-    }
+    public function widgetize(){
+        $CookiePandaWidget = new CookiePandaWidget();
 
+        add_action( 'widgets_init', function() {
+            register_widget( 'CookiePandaWidget' );
+        });
+
+        register_sidebar(array(
+            'name' => $this->name,
+            'id'   => $this->slug.'-sidebar',
+            'before_widget' => '<div class="'.$this->slug.'-sidebar">',
+            'after_widget'  => '</div>'
+        ));
+
+        add_action( 'wp_footer', function() {
+            dynamic_sidebar($this->slug.'-sidebar');
+        });
+    }
 }
 
 $CookiePanda = new CookiePanda();
-
 endif;

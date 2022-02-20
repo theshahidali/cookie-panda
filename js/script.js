@@ -1,15 +1,16 @@
-$(document).ready(function(){
+jQuery.noConflict();
+jQuery(document).ready(function(){
     var cookiePanda = getCookie('cookie-panda');
 
     if( cookiePanda == 'true' ){
-        $("#cookie-panda").css('display', 'none');
+        jQuery("#cookie-panda").css('display', 'none');
     }else{
-        $("#cookie-panda").css('display', 'block');
+        jQuery("#cookie-panda").css('display', 'flex');
     }
     
-    $("#cookie-accept").click(function(){
+    jQuery("#cookie-accept").on('click', function(){
         setCookie('cookie-panda', 'true', 30);
-        $("#cookie-panda").css('display', 'none');
+        jQuery("#cookie-panda").css('display', 'none');
     });
 
     function setCookie(key, value, days) {
@@ -34,5 +35,4 @@ $(document).ready(function(){
         }
         return "";
     }
-
 });
