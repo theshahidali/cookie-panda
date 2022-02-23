@@ -4,9 +4,21 @@
 * Plugin URI: https://shahidalionline.com/wordpress/plugins/cookie-panda
 * Description: Simple GDPR cookie notice plugin for WordPress 
 * Version: 1.0.0
-* Text Domain: cookie-panda
 * Author: Shahid Ali
 * Author URI: https://shahidalionline.com
+* License: GPLv2 or later
+* License URI: http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
+* Text Domain: cookie-panda
+* Requires at least: 4.9
+* Tested up to: 5.8
+* Requires PHP: 5.2.4
+*
+* This program is free software; you can redistribute it and/or modify it under the terms of the GNU
+* General Public License version 2, as published by the Free Software Foundation. You may NOT assume
+* that you can use any other version of the GPL.
+*
+* This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without
+* even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -23,7 +35,6 @@ class CookiePanda {
     private $slug = 'cookie-panda';
     private $version = '1.0.0';
     private $options = 'sao-cookie-panda';
-    private $shortcode = 'cookiepanda';
 
     public function __construct() {
         self::load_files();

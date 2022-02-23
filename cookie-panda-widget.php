@@ -1,4 +1,8 @@
 <?php
+/**
+ * CookiePandaWidget
+ */
+
 if ( ! defined( 'ABSPATH' ) ) {
     die( 'Invalid request.' );
 }
@@ -6,15 +10,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 class CookiePandaWidget extends WP_Widget {
 
     public $id = 'cookie_panda_widget';
-    public $name = 'Cookie Panda';
-    public $domain = 'cookie_panda_widget_domain';
-    public $description = 'Simple GDPR cookie notice plugin for WordPress';
   
     function __construct() {
         parent::__construct( 
             $this->id, 
-            __($this->name, $this->domain), 
-            array( 'description' => __( $this->description, $this->domain ) ) 
+            __('Cookie Panda', 'cookie-panda'), 
+            array( 'description' => __( 'Simple GDPR cookie notice plugin for WordPress', 'cookie-panda' ) ) 
         );
     }
       
@@ -25,16 +26,16 @@ class CookiePandaWidget extends WP_Widget {
             ?>
                 <div id="cookie-panda">
                     <div class="cookie-text-wrapper">
-                        <p><small><?php echo __( $instance['cookie_notice'], $this->domain ); ?></small></p>
+                        <p><small><?php echo esc_html( $instance['cookie_notice'] ); ?></small></p>
                     </div>
                     <div class="cookie-btn-wrapper">
                         <?php if( isset($instance['privacy_link']) && !empty($instance['privacy_link']) ){ ?>
-                            <a href="<?php echo $instance['privacy_link'] ?>" id="privacy_link" class="btn" target="_blank">
+                            <a href="<?php echo esc_html( $instance['privacy_link'] ) ?>" id="privacy_link" class="btn" target="_blank">
                                 <?php 
                                     if( isset($instance['privacy_label']) && !empty($instance['privacy_label']) ) {
-                                        echo __( $instance['privacy_label'], $this->domain );
+                                        echo esc_html( $instance['privacy_label'] );
                                     }else{
-                                        echo __( 'Privacy policy', $this->domain );
+                                        esc_html_e( 'Privacy policy', 'cookie-panda' );
                                     }
                                 ?>
                             </a>
@@ -42,9 +43,9 @@ class CookiePandaWidget extends WP_Widget {
                         <a href="#" id="cookie-accept" class="btn">
                             <?php 
                                 if( isset($instance['accept_label']) && !empty($instance['accept_label']) ) {
-                                    echo __( $instance['accept_label'], $this->domain );
+                                    echo esc_html( $instance['accept_label'] );
                                 }else{
-                                    echo __( 'Accept', $this->domain );
+                                    esc_html_e( 'Accept', 'cookie-panda' );
                                 }
                             ?>
                         </a>
@@ -69,7 +70,7 @@ class CookiePandaWidget extends WP_Widget {
         ?>
             <p>
                 <label for="<?php echo $this->get_field_id('cookie_notice')?>"><?php _e('Cookie Notice')?></label>
-                <textarea id="<?php echo $this->get_field_id('cookie_notice')?>" name="<?php echo $this->get_field_name('cookie_notice') ?>" value="<?php echo esc_attr( $cookie_notice ); ?>" class="widefat"><?php echo esc_attr( $cookie_notice ); ?></textarea>
+                <textarea id="<?php echo $this->get_field_id('cookie_notice')?>" name="<?php echo $this->get_field_name('cookie_notice') ?>" value="<?php echo esc_attr( $cookie_notice ); ?>" class="widefat"><?php echo esc_textarea( $cookie_notice ); ?></textarea>
             </p>
 
             <p>
@@ -97,5 +98,4 @@ class CookiePandaWidget extends WP_Widget {
         $instance['privacy_link'] = ( !empty( $new_instance['privacy_link'] ) ) ? strip_tags( $new_instance['privacy_link'] ) : '';
         return $instance;
     }
-     
 } 
