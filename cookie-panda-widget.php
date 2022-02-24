@@ -69,23 +69,23 @@ class CookiePandaWidget extends WP_Widget {
 
         ?>
             <p>
-                <label for="<?php echo $this->get_field_id('cookie_notice')?>"><?php _e('Cookie Notice')?></label>
-                <textarea id="<?php echo $this->get_field_id('cookie_notice')?>" name="<?php echo $this->get_field_name('cookie_notice') ?>" value="<?php echo esc_attr( $cookie_notice ); ?>" class="widefat"><?php echo esc_textarea( $cookie_notice ); ?></textarea>
+                <label for="<?php echo esc_attr($this->get_field_id('cookie_notice'))?>"><?php echo esc_html('Cookie Notice')?></label>
+                <textarea id="<?php echo esc_attr($this->get_field_id('cookie_notice'))?>" name="<?php echo esc_attr($this->get_field_name('cookie_notice')) ?>" value="<?php echo esc_attr( $cookie_notice ); ?>" class="widefat"><?php echo esc_textarea( $cookie_notice ); ?></textarea>
             </p>
 
             <p>
-                <label for="<?php echo $this->get_field_id('accept_label')?>"><?php _e('Accept button label')?></label>
-                <input type="text" id="<?php echo $this->get_field_id('accept_label')?>" name="<?php echo $this->get_field_name('accept_label') ?>" value="<?php echo esc_attr( $accept_label ); ?>" class="widefat">
+                <label for="<?php echo esc_attr($this->get_field_id('accept_label'))?>"><?php echo esc_html('Accept button label')?></label>
+                <input type="text" id="<?php echo esc_attr($this->get_field_id('accept_label'))?>" name="<?php echo esc_attr($this->get_field_name('accept_label')) ?>" value="<?php echo esc_attr( $accept_label ); ?>" class="widefat">
             </p>
 
             <p>
-                <label for="<?php echo $this->get_field_id('privacy_label')?>"><?php _e('Privacy button label')?></label>
-                <input type="text" id="<?php echo $this->get_field_id('privacy_label')?>" name="<?php echo $this->get_field_name('privacy_label') ?>" value="<?php echo esc_attr( $privacy_label ); ?>" class="widefat">
+                <label for="<?php echo esc_attr($this->get_field_id('privacy_label'))?>"><?php echo esc_html('Privacy button label')?></label>
+                <input type="text" id="<?php echo esc_attr($this->get_field_id('privacy_label'))?>" name="<?php echo esc_attr($this->get_field_name('privacy_label')) ?>" value="<?php echo esc_attr( $privacy_label ); ?>" class="widefat">
             </p>
 
             <p>
-                <label for="<?php echo $this->get_field_id('privacy_link')?>"><?php _e('Privacy link')?></label>
-                <input type="text" id="<?php echo $this->get_field_id('privacy_link')?>" name="<?php echo $this->get_field_name('privacy_link') ?>" value="<?php echo esc_attr( $privacy_link ); ?>" class="widefat">
+                <label for="<?php echo esc_attr($this->get_field_id('privacy_link'))?>"><?php echo esc_html('Privacy link')?></label>
+                <input type="text" id="<?php echo esc_attr($this->get_field_id('privacy_link'))?>" name="<?php echo esc_attr($this->get_field_name('privacy_link')) ?>" value="<?php echo esc_attr( $privacy_link ); ?>" class="widefat">
             </p>
         <?php 
     }
