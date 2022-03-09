@@ -3,7 +3,7 @@
 * Plugin Name: Cookie Panda
 * Plugin URI: https://shahidalionline.com/wordpress/plugins/cookie-panda
 * Description: Simple GDPR cookie notice plugin for WordPress 
-* Version: 1.0.0
+* Version: 1.2.0
 * Author: Shahid Ali
 * Author URI: https://shahidalionline.com
 * License: GPLv2 or later
@@ -33,7 +33,7 @@ class CookiePanda {
 
     private $name = 'Cookie Panda';
     private $slug = 'cookie-panda';
-    private $version = '1.0.0';
+    private $version = '1.2.0';
     private $options = 'sao-cookie-panda';
 
     public function __construct() {
@@ -45,6 +45,13 @@ class CookiePanda {
         add_action( 'wp_enqueue_scripts', function() {
             wp_enqueue_script( $this->slug.'-script', plugins_url('js/script.js', __FILE__), array('jquery'), '1.0', true );
             wp_enqueue_style( $this->slug.'-style', plugins_url('css/style.css', __FILE__), null, '1.0' );
+        });
+
+        add_action( 'admin_enqueue_scripts', function() {
+            if( !is_admin() ) return;
+            wp_enqueue_style( 'wp-color-picker' ); 
+            wp_enqueue_script( 'wp-color-picker-alpha', plugins_url( 'js/wp-color-picker-alpha.min.js',  __FILE__ ), array( 'wp-color-picker' ), '3.0.0', true );
+            wp_enqueue_script( $this->slug.'-script', plugins_url('js/script.js', __FILE__), array( 'wp-color-picker-alpha' ), '3.0.0', true );
         });
     }
 

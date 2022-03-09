@@ -3,7 +3,7 @@ Contributors: shahidalionline
 Tags: CCPA, cookie banner, cookie consent, cookie law, GDPR, cookie notice
 Requires at least: 4.9
 Tested up to: 5.9.1
-Stable tag: 1.0.0
+Stable tag: 1.2.0
 Requires PHP: 5.2.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -14,7 +14,7 @@ Cookie Panda allows you to easily notify visitors that your website comply with 
 
 **Cookie Panda** provides you a simple way of displaying minimal notice on your website about GDPR, CCPA and privacy laws. You can easily add notice by using widgets (classic and block) with privacy link.
 
-It gives you the felxibility to change _Accept_ and _Privacy_ labels as well as add custom link to your privacy page.
+It gives you the flexibility to change _Accept_ and _Privacy_ labels as well as add custom link to your privacy page.
 
 It is compatible with multi-language support plugins such as Polylang and WPML. You can create different notices in different languages.
 
@@ -23,6 +23,8 @@ It is compatible with multi-language support plugins such as Polylang and WPML. 
 **Features**
 
 - Customizable cookie notice
+- Background and font color support
+- Font size adjustable
 - Link to Privacy Policy page
 - Customizable 'Accept' label
 - Customizable 'Privacy' label
@@ -45,15 +47,23 @@ Yes! Cookie Panda is a free plugin.
 = Do you provide support =
 
 Yes, I am always glad to help my users and provide fast support.
-[My official website is located here](https://shahidalionline.com/)
+[Join Facebook group for instant support and updates](https://web.facebook.com/groups/wppandaplugins)
+[Contact me for WordPress development](https://shahidalionline.com)
 
 == Screenshots ==
 
-1. Plugin will display on your website like this.
-2. You can add cookie widget from here and change notice message, link, accept and privacy labels.
+1. Default style of cookie notice.
+2. Customized style of cookie notice.
+3. You can add cookie widget from here and change notice message, link, accept and privacy labels.
 
 == Changelog ==
 
 = 1.0 =
 
 - Initial release
+
+= 1.2 =
+
+- Cookie notice background and color support added
+- Background and font color support added for privacy and accept buttons separately
+- Custom font size support added
